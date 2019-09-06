@@ -42,7 +42,6 @@ COPY --from=build /finalfs /
 # Final
 # =========================================================================
 ENV VAR_MAPSTORE_CONFIG_DIR="/etc/mapstore2" \
-    VAR_DATA_DIR="/mapst-data" \
     VAR_WITH_MANAGERS="false" \
     VAR_ROOT_APP="mapstore2"
     
