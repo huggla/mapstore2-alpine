@@ -8,5 +8,5 @@
 configDirContent="$(ls -A "$VAR_CONFIG_DIR")"
 if [ ! -z "$configDirContent" ] && [ "$configDirContent" != ".snapshot" ]
 then
-   cp -a $VAR_CONFIG_DIR/* "$VAR_WEBAPPS_DIR/ROOT/WEB-INF/lib/"
+   cp -a $VAR_CONFIG_DIR/* "$VAR_WEBAPPS_DIR/ROOT/"
 fi
