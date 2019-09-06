@@ -7,6 +7,6 @@
 
 if [ "$isFirstRun" == "true" ]
 then
-   replaceFileWithLink "$VAR_WEBAPPS_DIR/ROOT/localConfig.json" "$VAR_CONFIG_DIR/localConfig.json"
-   replaceFileWithLink "$VAR_WEBAPPS_DIR/ROOT/WEB-INF/classes/users.ldif" "$VAR_CONFIG_DIR/users.ldif"
+   replaceFileWithLink "$VAR_WEBAPPS_DIR/ROOT/localConfig.json" "$VAR_MAPSTORE_CONFIG_DIR/localConfig.json"
+   replaceFileWithLink "$VAR_WEBAPPS_DIR/ROOT/WEB-INF/classes/users.ldif" "$VAR_MAPSTORE_CONFIG_DIR/users.ldif"
 fi
