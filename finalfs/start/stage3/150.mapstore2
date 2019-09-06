@@ -5,7 +5,7 @@
 # VAR_*
 # All functions in /start/functions
 
-if [ "$isFirstRun" == "true" ]
+if [ "$isFirstRun" == "true" ] && [ "$VAR_ROOT_APP" == "mapstore2" ]
 then
    replaceFileWithLink "$VAR_WEBAPPS_DIR/ROOT/localConfig.json" "$VAR_MAPSTORE_CONFIG_DIR/localConfig.json"
    replaceFileWithLink "$VAR_WEBAPPS_DIR/ROOT/WEB-INF/classes/users.ldif" "$VAR_MAPSTORE_CONFIG_DIR/users.ldif"
