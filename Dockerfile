@@ -43,7 +43,7 @@ COPY --from=build /finalfs /
 # Final
 # =========================================================================
 ENV VAR_WITH_MANAGERS="false" \
-    VAR_ROOT_APP="geoserver"
+    VAR_ROOT_APP="mapstore2"
     
 # Generic template (don't edit) <BEGIN>
 USER starter
