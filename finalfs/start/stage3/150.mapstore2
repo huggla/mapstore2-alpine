@@ -5,8 +5,8 @@
 # VAR_*
 # All functions in /start/functions
 
-configDirContent="$(ls -A "$VAR_CONFIG_DIR")"
-if [ ! -z "$configDirContent" ] && [ "$configDirContent" != ".snapshot" ]
+if [ "$isFirstRun" == "true" ]
 then
-   cp -a $VAR_CONFIG_DIR/* "$VAR_WEBAPPS_DIR/ROOT/"
+   replaceFileWithLink "$VAR_WEBAPPS_DIR/ROOT/localConfig.json" "$VAR_CONFIG_DIR/localConfig.json"
+   replaceFileWithLink "$VAR_WEBAPPS_DIR/ROOT/WEB-INF/classes/users.ldif" "$VAR_CONFIG_DIR/users.ldif"
 fi
