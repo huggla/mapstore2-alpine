@@ -42,7 +42,8 @@ COPY --from=build /finalfs /
 # =========================================================================
 # Final
 # =========================================================================
-ENV VAR_WITH_MANAGERS="false" \
+ENV VAR_CONFIG_DIR="/etc/mapstore2" \
+    VAR_WITH_MANAGERS="false" \
     VAR_ROOT_APP="mapstore2"
     
 # Generic template (don't edit) <BEGIN>
