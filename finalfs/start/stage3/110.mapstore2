@@ -11,5 +11,8 @@ then
    if [ -s "$VAR_MAPSTORE_CONFIG_DIR/localConfig.json" ]
    then
       cp -a "$VAR_MAPSTORE_CONFIG_DIR/localConfig.json" "$VAR_WEBAPPS_DIR/ROOT/"
+   else
+      cp -a "$VAR_WEBAPPS_DIR/ROOT/localConfig.json" "$VAR_MAPSTORE_CONFIG_DIR/"
+   fi
    replaceFileWithLink "$VAR_WEBAPPS_DIR/ROOT/WEB-INF/classes/users.ldif" "$VAR_MAPSTORE_CONFIG_DIR/users.ldif"
 fi
