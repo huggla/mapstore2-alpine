@@ -8,6 +8,8 @@
 if [ "$isFirstRun" == "true" ] && [ "$VAR_ROOT_APP" == "mapstore2" ]
 then
    replaceDirWithLink "/usr/local/tomcat/webapps" "$VAR_WEBAPPS_DIR" "mapstore"
-   replaceFileWithLink "$VAR_WEBAPPS_DIR/ROOT/localConfig.json" "$VAR_MAPSTORE_CONFIG_DIR/localConfig.json"
+   if [ -s "$VAR_MAPSTORE_CONFIG_DIR/localConfig.json" ]
+   then
+      cp -a "$VAR_MAPSTORE_CONFIG_DIR/localConfig.json" "$VAR_WEBAPPS_DIR/ROOT/"
    replaceFileWithLink "$VAR_WEBAPPS_DIR/ROOT/WEB-INF/classes/users.ldif" "$VAR_MAPSTORE_CONFIG_DIR/users.ldif"
 fi
