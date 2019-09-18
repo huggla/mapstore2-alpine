@@ -5,7 +5,23 @@
 # VAR_*
 # All functions in /start/functions
 
-if [ "$isFirstRun" == "true" ] && [ "$VAR_ROOT_APP" == "mapstore2" ]
+if [ "$isFirstRun" == "true" ]
 then
-   replaceDirWithLink "/usr/local/tomcat/webapps" "$VAR_WEBAPPS_DIR" "mapstore"
+   if [ "$VAR_WEBAPPS_DIR" != "/webapps-nobind" ]
+   then
+      mapstDirContents=""
+      rootDirContents=""
+      if [ -e "$VAR_WEBAPPS_DIR/mapstore2" ]
+      then
+         mapstDirContents="$(ls -A "$VAR_WEBAPPS_DIR/mapstore2" | sed 's/.snapshot//' | xargs)"
+      fi
+      if [ "$VAR_ROOT_APP" == "mapstore2" ] && [ -e "$VAR_WEBAPPS_DIR/ROOT" ]
+      then
+         rootDirContents="$(ls -A "$VAR_WEBAPPS_DIR/ROOT" | sed 's/.snapshot//' | xargs)"
+      fi
+      if [ -z "$mapstDirContents" ] && [ -z "$rootDirContents" ]
+      then
+         cp -a "/webapps-nobind/mapstore2" "$VAR_WEBAPPS_DIR/"
+      fi
+   fi
 fi
