@@ -2,18 +2,16 @@
 # Init
 # =========================================================================
 # ARGs (can be passed to Build/Final) <BEGIN>
-ARG TAG="20190911"
+ARG TAG="20190917"
 ARG IMAGETYPE="application"
 ARG MAPSTORE2_VERSION="v2019.02.00"
 ARG CATALINA_HOME="/usr/local/tomcat"
-ARG CATALINA_BASE="$CATALINA_HOME"
 ARG BASEIMAGE="huggla/tomcat-alpine:$TAG"
 ARG ADDREPOS="http://dl-cdn.alpinelinux.org/alpine/edge/testing"
 ARG RUNDEPS="freetype ttf-font-awesome"
 ARG BUILDDEPS="openjdk8"
-ARG MAKEDIRS="$CATALINA_HOME/webapps/mapstore2"
 ARG DOWNLOADS="https://github.com/geosolutions-it/MapStore2/releases/download/$MAPSTORE2_VERSION/mapstore.war https://download.java.net/media/jai/builds/release/1_1_3/jai-1_1_3-lib-linux-amd64.tar.gz https://download.java.net/media/jai-imageio/builds/release/1.1/jai_imageio-1_1-lib-linux-amd64.tar.gz"
-ARG DESTDIR="$CATALINA_HOME/webapps/mapstore2"
+ARG DESTDIR="/webapps-nobind/mapstore2"
 ARG BUILDCMDS=\
 '   cd $DESTDIR '\
 '&& /usr/lib/jvm/java-1.8-openjdk/bin/jar xvf $DOWNLOADSDIR/mapstore.war '\
