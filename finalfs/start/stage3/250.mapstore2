@@ -1,0 +1,20 @@
+# Set in stage2:
+# ---------------------------------------------------------
+# set -ef +am
+# isFirstRun
+# VAR_*
+# All functions in /start/functions
+
+if [ -e "$VAR_WEBAPPS_DIR/mapstore2" ]
+then
+   appDir="mapstore2"
+elif [ "$VAR_ROOT_APP" == "mapstore2" ] && [ -e "$VAR_WEBAPPS_DIR/ROOT" ]
+then
+   appDir="ROOT"
+fi
+if [ -s "$VAR_MAPSTORE_CONFIG_DIR/localConfig.json" ]
+then
+   cp -a "$VAR_MAPSTORE_CONFIG_DIR/localConfig.json" "$VAR_WEBAPPS_DIR/$appDir/"
+else
+   cp -a "$VAR_WEBAPPS_DIR/$appDir/localConfig.json" "$VAR_MAPSTORE_CONFIG_DIR/"
+fi
